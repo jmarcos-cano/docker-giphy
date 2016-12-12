@@ -12,8 +12,7 @@ var config = require('config');
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('views', __dirname + '/views')
-app.set('view engine', 'pug');
+
 
 // LOGGING
 var logdir = config.get('app.logdir');
@@ -43,48 +42,14 @@ app.get('/search.json', function (req, res) {
   	 'myHeaderTag': 'have_fun'
   });
 
-  res.sendFile('search.html',options);
+  res.sendFile('index.html',options);
 })
 
-
-app.get('/img', function (req, res) {
-  var options = {
-    root: __dirname + '/public/',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-  console.log("serve an image");
-  glob(options.root+"*.jpg" ,{ dot:true} ,  function(err,files){
-  	var shuf= shuffle(files)
-  	var file = shuf[0];
-  	console.log(shuf,"SERVING:"+path.basename(file));
-
-  	res.sendFile('pug.jpg', options);
-  });
-   
-})
 
 app.get('/info| /info.json| info.html ', function(req,res) {
     res.send(info);
 });
 
-
-app.get('/api/health.json', function (req, res) {
-  res.send('Healthy')
-});
-
-app.get('/tmp', function (req, res) {
-  console.log(info);
-  res.render('template',info);
-})
-
-app.get('/ansible', function (req, res) {
-  console.log("entering ansible")
-  res.render('ansible');
-})
 
 
 var port = config.get('app.port');
