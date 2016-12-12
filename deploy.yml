@@ -1,0 +1,9 @@
+- name: ansible workshop
+  hosts: 172.31.30.182
+  user: ubuntu
+  tasks: 
+
+  - name: compress assets
+    shell: tar cvfz artifacts.tar.gz *
+    delegate_to: 127.0.0.1
+    

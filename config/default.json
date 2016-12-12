@@ -1,0 +1,11 @@
+{
+   "info":{
+      "environment": "default",
+      "owner" : "devops",
+      "purpose": "ansible"
+   },
+   "app" : {
+      "logdir": "./logs",
+      "port": 3000
+   }
+}
