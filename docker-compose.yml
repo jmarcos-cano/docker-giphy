@@ -1,0 +1,23 @@
+version: '2'
+services:
+  web-app:
+    build: ./app/
+    restart: unless-stopped
+    volumes:
+      - "./app/:/app"
+    ports: 
+      - "127.0.0.1:3000:3000"
+    container_name: docker101
+     
+  nginx:
+    container_name: docker101-nginx
+    build: ./nginx/
+    restart: unless-stopped
+    volumes: 
+      - "./nginx/conf.d:/etc/nginx/conf.d/"
+    ports: 
+      - "80:80"
+    links: 
+      - "web-app:web"
+
+    

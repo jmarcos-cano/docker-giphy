@@ -1,7 +1,5 @@
 
-var glob = require("glob");
 var express = require('express');
-var shuffle = require('shuffle-array');
 var morgan = require('morgan')
 var fs = require('fs')
 const path = require('path');
