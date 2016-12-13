@@ -4,17 +4,19 @@ services:
     build: ./app/
     image: dockerguatemala/giphy-nodejs
     restart: unless-stopped
+    environment:
+      NODE_ENV: production
     volumes:
       - "./app/:/app"
+      - /app/node_modules
     ports: 
       - "127.0.0.1:3000:3000"
-    container_name: docker101
+    container_name: docker101-nodejs
     networks:
       - frontend
 
   nginx:
     container_name: docker101-nginx
-    build: ./nginx/
     image: dockerguatemala/giphy-nginx
     restart: unless-stopped
     volumes: 

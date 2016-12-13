@@ -1,8 +1,8 @@
 {
    "info":{
       "environment": "default",
-      "owner" : "devops",
-      "purpose": "ansible"
+      "owner" : "marcos",
+      "purpose": "workshop"
    },
    "app" : {
       "logdir": "./logs",

@@ -12,6 +12,6 @@ RUN npm install
 COPY . ./
 
 EXPOSE ${PORT}
-VOLUME '/app'
+VOLUME '/app/'
 
 CMD ["node" , "app.js"]
